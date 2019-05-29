@@ -10,13 +10,14 @@ public class Map : MonoBehaviour
 {
 
     public GameObject[] locations = new GameObject[25];
-    public Button redo;
+    bool[] locationsStatus = new bool[25];
+    public Button check;
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+ 
 
     }
 
@@ -26,23 +27,49 @@ public class Map : MonoBehaviour
         
     }
 
-    void TurnLocations(bool[] locationsStatus){
+    void TurnLocations(){
         for (int i = 0; i < locationsStatus.Length; i++)
         {
             locations[i].SetActive(locationsStatus[i]);
         }
 
     }
+
+    int FindNextItem(){
+        for (int i = 0 ; i < locationsStatus.Length; i++)
+        {
+            if (locationsStatus[i])
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+    void ChangeCheckText(){
+        int item = FindNextItem(); 
+        check.GetComponentInChildren<Text>().text = "Product" + item;
+
+    }
+
+    public void CheckPress(){
+        int item = FindNextItem();
+        if (item != -1)
+        {
+            locationsStatus[item] = false;
+            locations[item].SetActive(false);
+        }
+        ChangeCheckText();
+    }
     
     public void RedoPress(){
         System.Random rand = new System.Random();
-        bool[] locationsStatus = new bool[25];
         for (int i = 0; i < locationsStatus.Length; i++)
         {
             locationsStatus[i] = rand.Next(2) == 0;
         }
         
-        TurnLocations(locationsStatus);
+        TurnLocations();
+        ChangeCheckText();
     }
 
 
