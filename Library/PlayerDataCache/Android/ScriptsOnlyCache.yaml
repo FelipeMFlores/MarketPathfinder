@@ -59,7 +59,11 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 20
       Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
     - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
@@ -78,10 +82,14 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9388}
     - Class: 114
+      Script: {instanceID: 9390}
+    - Class: 114
       Script: {instanceID: 9772}
     - Class: 114
       Script: {instanceID: 12260}
     - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -815,7 +823,7 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 6a7438d5aacab4d34841dbedcc3ece96
+      Hash: 638f086c6579453a09bfd5b0c2b7f3e4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Map
