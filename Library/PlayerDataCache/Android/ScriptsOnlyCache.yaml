@@ -84,8 +84,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9390}
     - Class: 114
-      Script: {instanceID: 9772}
-    - Class: 114
       Script: {instanceID: 12260}
     - Class: 115
       Script: {instanceID: 0}
@@ -138,6 +136,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 9390}
     - Class: 114
       Script: {instanceID: 9400}
+    - Class: 114
+      Script: {instanceID: 9772}
     - Class: 114
       Script: {instanceID: 10034}
     - Class: 115
@@ -823,13 +823,13 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 638f086c6579453a09bfd5b0c2b7f3e4
+      Hash: 0ca033ead1d4dca5359d6837f1fa9014
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Map
   platform: 13
   scenePathNames:
+  - Assets/Scenes/Menu.unity
   - Assets/Scenes/Map.unity
   - Assets/Scenes/MainScene.unity
-  - Assets/Scenes/Menu.unity
   playerPath: C:/Users/I509180/MarketPathfinder/MarketPathfinder.apk

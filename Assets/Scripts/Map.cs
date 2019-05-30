@@ -8,10 +8,12 @@ using System;
 
 public class Map : MonoBehaviour
 {
-
-    public GameObject[] locations = new GameObject[25];
-    bool[] locationsStatus = new bool[25];
+    const int NLOCATIONS = 25;
+    public GameObject[] locations = new GameObject[NLOCATIONS];
+    public Button[] locationsButtons = new Button[NLOCATIONS];
+    bool[] locationsStatus = new bool[NLOCATIONS];
     public Button check;
+    public Text productsInLoc;
 
 
     // Start is called before the first frame update
@@ -28,7 +30,7 @@ public class Map : MonoBehaviour
     }
 
     void TurnLocations(){
-        for (int i = 0; i < locationsStatus.Length; i++)
+        for (int i = 0; i < NLOCATIONS; i++)
         {
             locations[i].SetActive(locationsStatus[i]);
         }
@@ -36,7 +38,7 @@ public class Map : MonoBehaviour
     }
 
     int FindNextItem(){
-        for (int i = 0 ; i < locationsStatus.Length; i++)
+        for (int i = 0 ; i < NLOCATIONS; i++)
         {
             if (locationsStatus[i])
             {
@@ -63,13 +65,17 @@ public class Map : MonoBehaviour
     
     public void RedoPress(){
         System.Random rand = new System.Random();
-        for (int i = 0; i < locationsStatus.Length; i++)
+        for (int i = 0; i <NLOCATIONS; i++)
         {
             locationsStatus[i] = rand.Next(2) == 0;
         }
         
         TurnLocations();
         ChangeCheckText();
+    }
+
+    public void LocationsButtonsPress(GameObject location){
+        productsInLoc.text = location.name;
     }
 
 
