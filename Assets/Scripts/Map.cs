@@ -8,19 +8,22 @@ using System;
 
 public class Map : MonoBehaviour
 {
-    const int NLOCATIONS = 25;
+    const int NLOCATIONS = 24;
     public GameObject[] locations = new GameObject[NLOCATIONS];
-    public Button[] locationsButtons = new Button[NLOCATIONS];
     bool[] locationsStatus = new bool[NLOCATIONS];
+    List<int> shopList = new List<int>();
     public Button check;
+    public Text nextItem;
     public Text productsInLoc;
-
+  
 
     // Start is called before the first frame update
     void Start()
     {
- 
-
+        shopList = ListClass.list;
+        BuildLocationStatus();
+        TurnLocations();
+        ChangeCheckText();
     }
 
     // Update is called once per frame
@@ -28,6 +31,7 @@ public class Map : MonoBehaviour
     {
         
     }
+ 
 
     void TurnLocations(){
         for (int i = 0; i < NLOCATIONS; i++)
@@ -37,30 +41,28 @@ public class Map : MonoBehaviour
 
     }
 
-    int FindNextItem(){
-        for (int i = 0 ; i < NLOCATIONS; i++)
-        {
-            if (locationsStatus[i])
-            {
-                return i;
-            }
-        }
-        return -1;
-    }
     void ChangeCheckText(){
-        int item = FindNextItem(); 
-        check.GetComponentInChildren<Text>().text = "Product" + item;
+        if(shopList.Count != 0){
+            int item = shopList[0]; 
+            nextItem.text = "Product" + item;
+        }
+        else
+            nextItem.text = "DONE";
 
     }
 
     public void CheckPress(){
-        int item = FindNextItem();
-        if (item != -1)
-        {
-            locationsStatus[item] = false;
-            locations[item].SetActive(false);
+        if(shopList.Count != 0){
+            int item = shopList[0];
+            if (item != -1)
+            {
+                locationsStatus[item] = false;
+                locations[item].SetActive(false);
+                shopList.RemoveAt(0);
+            }
         }
-        ChangeCheckText();
+            ChangeCheckText();
+        
     }
     
     public void RedoPress(){
@@ -69,14 +71,37 @@ public class Map : MonoBehaviour
         {
             locationsStatus[i] = rand.Next(2) == 0;
         }
+
         
+        BuildShopList();        
         TurnLocations();
         ChangeCheckText();
+    }
+
+    void BuildLocationStatus(){
+        foreach (int i in shopList)
+        {
+            locationsStatus[i] = true;
+        }
+    }
+
+    void BuildShopList(){
+        shopList.Clear();
+        for (int i = 0 ; i < NLOCATIONS; i++)
+        {
+            if (locationsStatus[i])
+            {
+                shopList.Add(i);
+            }
+        }
     }
 
     public void LocationsButtonsPress(GameObject location){
         productsInLoc.text = location.name;
     }
 
+    public void BackPress(){
+        SceneManager.LoadScene(0);
+    }
 
 }

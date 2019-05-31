@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - List
     - Map
     - Menu
     - SpecialEffects
@@ -14,13 +15,76 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.InputField
+    - UnityEngine.UI.Mask
     - UnityEngine.UI.Outline
+    - UnityEngine.UI.ScrollRect
+    - UnityEngine.UI.Scrollbar
     - UnityEngine.UI.Shadow
     - UnityEngine.UI.Text
     - UnityEngine.UI.VerticalLayoutGroup
     XiaomiSupport.dll:
     - AppStoresSupport.AppStoreSettings
   sceneClasses:
+    Assets/Scenes/List.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 9330}
+    - Class: 114
+      Script: {instanceID: 9332}
+    - Class: 114
+      Script: {instanceID: 9338}
+    - Class: 114
+      Script: {instanceID: 9344}
+    - Class: 114
+      Script: {instanceID: 9352}
+    - Class: 114
+      Script: {instanceID: 9354}
+    - Class: 114
+      Script: {instanceID: 9360}
+    - Class: 114
+      Script: {instanceID: 9364}
+    - Class: 114
+      Script: {instanceID: 9378}
+    - Class: 114
+      Script: {instanceID: 9380}
+    - Class: 114
+      Script: {instanceID: 9384}
+    - Class: 114
+      Script: {instanceID: 9388}
+    - Class: 114
+      Script: {instanceID: 9390}
+    - Class: 114
+      Script: {instanceID: 18500}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
     Assets/Scenes/MainScene.unity:
     - Class: 1
       Script: {instanceID: 0}
@@ -80,11 +144,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9352}
     - Class: 114
+      Script: {instanceID: 9364}
+    - Class: 114
+      Script: {instanceID: 9384}
+    - Class: 114
       Script: {instanceID: 9388}
     - Class: 114
       Script: {instanceID: 9390}
     - Class: 114
-      Script: {instanceID: 12260}
+      Script: {instanceID: 10554}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -679,7 +747,7 @@ ScriptsOnlyBuild:
     className: TextContainer
   - hash:
       serializedVersion: 2
-      Hash: b38ad9600a019a765c5c4f46795918f9
+      Hash: 5fcf1427bfb921ea80f54a1f67d8a232
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Menu
@@ -805,6 +873,12 @@ ScriptsOnlyBuild:
     className: TMP_ColorGradient
   - hash:
       serializedVersion: 2
+      Hash: 57dbf5f8d6f90ee8875c3dc0fd5c09ba
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Map
+  - hash:
+      serializedVersion: 2
       Hash: 8649814970b42d345b89944b862453cc
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -823,13 +897,14 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 0ca033ead1d4dca5359d6837f1fa9014
+      Hash: 52c75924f7193a3152149ac29523f1d3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: Map
+    className: List
   platform: 13
   scenePathNames:
   - Assets/Scenes/Menu.unity
   - Assets/Scenes/Map.unity
+  - Assets/Scenes/List.unity
   - Assets/Scenes/MainScene.unity
   playerPath: C:/Users/I509180/MarketPathfinder/MarketPathfinder.apk
