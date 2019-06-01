@@ -10,47 +10,35 @@ public class Map : MonoBehaviour
 {
     const int NLOCATIONS = 24;
     public GameObject[] locations = new GameObject[NLOCATIONS];
+    public GameObject nodeMenu;
+    public Text nodeMenuText;
     bool[] locationsStatus = new bool[NLOCATIONS];
     List<int> shopList = new List<int>();
     public Button check;
     public Text nextItem;
     public Text productsInLoc;
+    public GameObject HelpPanel;
   
-
     // Start is called before the first frame update
     void Start()
     {
-        shopList = ListClass.list;
-        BuildLocationStatus();
-        TurnLocations();
-        ChangeCheckText();
+        nodeMenu.SetActive(false);
+        HelpPanel.SetActive(false);
+        if (ListClass.list != null)
+            shopList = ListClass.list;
+        BuildMap();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        NextItemColor();
     }
  
 
-    void TurnLocations(){
-        for (int i = 0; i < NLOCATIONS; i++)
-        {
-            locations[i].SetActive(locationsStatus[i]);
-        }
 
-    }
 
-    void ChangeCheckText(){
-        if(shopList.Count != 0){
-            int item = shopList[0]; 
-            nextItem.text = "Product" + item;
-        }
-        else
-            nextItem.text = "DONE";
-
-    }
-
+    //-------- BUTTONS PRESS --------------
     public void CheckPress(){
         if(shopList.Count != 0){
             int item = shopList[0];
@@ -71,18 +59,41 @@ public class Map : MonoBehaviour
         {
             locationsStatus[i] = rand.Next(2) == 0;
         }
-
-        
-        BuildShopList();        
+        BuildShopList();
         TurnLocations();
         ChangeCheckText();
+        NextItemColor();
+        SetNumbers();
+    }
+        public void LocationsButtonsPress(GameObject location){
+        productsInLoc.text = location.name;
+        NextItemColor();
     }
 
+    public void BackPress(){
+        SceneManager.LoadScene(0);
+    }
+    public void HelpPress(){
+        HelpPanel.SetActive(true);
+    }
+    public void HelpBack(){
+        HelpPanel.SetActive(false);
+    }
+
+
+    // --------- BUILD FUNCTIONS  ------------------
+    void BuildMap(){
+        BuildLocationStatus();
+        TurnLocations();
+        ChangeCheckText();
+        NextItemColor();
+        SetNumbers();
+    }
     void BuildLocationStatus(){
+        for (int i = 0; i < NLOCATIONS; i++)
+            locationsStatus[i] = false;  
         foreach (int i in shopList)
-        {
             locationsStatus[i] = true;
-        }
     }
 
     void BuildShopList(){
@@ -96,12 +107,72 @@ public class Map : MonoBehaviour
         }
     }
 
-    public void LocationsButtonsPress(GameObject location){
-        productsInLoc.text = location.name;
+    void TurnLocations(){
+        for (int i = 0; i < NLOCATIONS; i++)
+        {
+            locations[i].SetActive(locationsStatus[i]);
+        }
+
     }
 
-    public void BackPress(){
-        SceneManager.LoadScene(0);
+    void ChangeCheckText(){
+        if(shopList.Count != 0){
+            int item = shopList[0]; 
+            nextItem.text = "Product" + item;
+        }
+        else
+            nextItem.text = "DONE";
+
     }
 
+    // ------------- ROUTE FUNCTIONS -----------------------------
+    void NextItemColor(){
+        if(shopList.Count != 0){
+            int item = shopList[0]; 
+            
+            locations[item].GetComponent<Button>().Select();
+            locations[item].GetComponent<Button>().OnSelect(null);
+        }
+        
+    }
+    void SetNumbers(){
+        int i = 1;
+        foreach (int item in shopList)
+        {
+            locations[item].GetComponentInChildren<Text>().text = Convert.ToString(i++);
+        }
+    }
+
+
+
+    //----------- NODE MENU FUNCTIONS --------------------------
+    GameObject node;
+    public void ShowNodeMenu(GameObject location){
+        node = location;
+        nodeMenu.SetActive(true);
+        nodeMenuText.text = "- " + location.name;
+    }
+    
+    public void CloseNodeMenu(){
+        nodeMenu.SetActive(false);
+    }
+
+    public void CheckNodeMenu(){
+        //remover nodo lista
+        string item = Convert.ToString(node.name[10]);
+        if(node.name[11] != ')' )
+            item += Convert.ToString(node.name[11]);
+
+        Debug.Log(item);
+        shopList.Remove(Convert.ToInt32(item));
+        //perguntar se esta aqui
+        
+        BuildMap();
+        CloseNodeMenu();
+        //closenode menu
+    }
+
+    public void EstouAqui(){
+
+    }
 }

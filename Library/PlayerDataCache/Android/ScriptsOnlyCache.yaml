@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - List
+    - LongClickButton
     - Map
     - Menu
     - SpecialEffects
@@ -70,7 +71,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9390}
     - Class: 114
-      Script: {instanceID: 18500}
+      Script: {instanceID: 10538}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -152,7 +153,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9390}
     - Class: 114
-      Script: {instanceID: 10554}
+      Script: {instanceID: 10556}
+    - Class: 114
+      Script: {instanceID: 34598}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -867,13 +870,19 @@ ScriptsOnlyBuild:
     className: TextMeshPro
   - hash:
       serializedVersion: 2
+      Hash: 52c75924f7193a3152149ac29523f1d3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: List
+  - hash:
+      serializedVersion: 2
       Hash: 3165968ba45c74472d279ba04455fccb
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_ColorGradient
   - hash:
       serializedVersion: 2
-      Hash: 57dbf5f8d6f90ee8875c3dc0fd5c09ba
+      Hash: 0b2147ab9bc1b96ad0fa685c17876f5c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Map
@@ -897,10 +906,10 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 52c75924f7193a3152149ac29523f1d3
+      Hash: 91d42dd9f83f044af53e6734d5252d76
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: List
+    className: LongClickButton
   platform: 13
   scenePathNames:
   - Assets/Scenes/Menu.unity
