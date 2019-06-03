@@ -5,8 +5,6 @@ ScriptsOnlyBuild:
     - LongClickButton
     - Map
     - Menu
-    - SpecialEffects
-    - TouchControls
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
@@ -23,7 +21,6 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Scrollbar
     - UnityEngine.UI.Shadow
     - UnityEngine.UI.Text
-    - UnityEngine.UI.VerticalLayoutGroup
     XiaomiSupport.dll:
     - AppStoresSupport.AppStoreSettings
   sceneClasses:
@@ -45,33 +42,33 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9330}
-    - Class: 114
       Script: {instanceID: 9332}
     - Class: 114
-      Script: {instanceID: 9338}
+      Script: {instanceID: 9334}
     - Class: 114
-      Script: {instanceID: 9344}
+      Script: {instanceID: 9340}
     - Class: 114
-      Script: {instanceID: 9352}
+      Script: {instanceID: 9346}
     - Class: 114
       Script: {instanceID: 9354}
     - Class: 114
-      Script: {instanceID: 9360}
+      Script: {instanceID: 9356}
     - Class: 114
-      Script: {instanceID: 9364}
+      Script: {instanceID: 9362}
     - Class: 114
-      Script: {instanceID: 9378}
+      Script: {instanceID: 9366}
     - Class: 114
       Script: {instanceID: 9380}
     - Class: 114
-      Script: {instanceID: 9384}
+      Script: {instanceID: 9382}
     - Class: 114
-      Script: {instanceID: 9388}
+      Script: {instanceID: 9386}
     - Class: 114
       Script: {instanceID: 9390}
     - Class: 114
-      Script: {instanceID: 10538}
+      Script: {instanceID: 9392}
+    - Class: 114
+      Script: {instanceID: 10542}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -85,37 +82,6 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
-      Script: {instanceID: 0}
-    Assets/Scenes/MainScene.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 48
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 96
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 9422}
-    - Class: 114
-      Script: {instanceID: 10124}
-    - Class: 115
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 198
-      Script: {instanceID: 0}
-    - Class: 199
       Script: {instanceID: 0}
     Assets/Scenes/Map.unity:
     - Class: 1
@@ -135,27 +101,27 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9330}
+      Script: {instanceID: 9302}
     - Class: 114
       Script: {instanceID: 9332}
     - Class: 114
-      Script: {instanceID: 9338}
+      Script: {instanceID: 9334}
     - Class: 114
-      Script: {instanceID: 9344}
+      Script: {instanceID: 9340}
     - Class: 114
-      Script: {instanceID: 9352}
+      Script: {instanceID: 9346}
     - Class: 114
-      Script: {instanceID: 9364}
+      Script: {instanceID: 9354}
     - Class: 114
-      Script: {instanceID: 9384}
+      Script: {instanceID: 9366}
     - Class: 114
-      Script: {instanceID: 9388}
+      Script: {instanceID: 9386}
     - Class: 114
       Script: {instanceID: 9390}
     - Class: 114
-      Script: {instanceID: 10556}
+      Script: {instanceID: 9392}
     - Class: 114
-      Script: {instanceID: 34598}
+      Script: {instanceID: 10560}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -188,29 +154,25 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9330}
+      Script: {instanceID: 9334}
     - Class: 114
-      Script: {instanceID: 9332}
+      Script: {instanceID: 9340}
     - Class: 114
-      Script: {instanceID: 9338}
+      Script: {instanceID: 9346}
     - Class: 114
-      Script: {instanceID: 9344}
+      Script: {instanceID: 9354}
     - Class: 114
-      Script: {instanceID: 9352}
+      Script: {instanceID: 9366}
     - Class: 114
-      Script: {instanceID: 9364}
-    - Class: 114
-      Script: {instanceID: 9384}
-    - Class: 114
-      Script: {instanceID: 9388}
+      Script: {instanceID: 9386}
     - Class: 114
       Script: {instanceID: 9390}
     - Class: 114
-      Script: {instanceID: 9400}
+      Script: {instanceID: 9392}
     - Class: 114
-      Script: {instanceID: 9772}
+      Script: {instanceID: 9774}
     - Class: 114
-      Script: {instanceID: 10034}
+      Script: {instanceID: 10036}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -262,6 +224,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ActivationTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 91d42dd9f83f044af53e6734d5252d76
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: LongClickButton
   - hash:
       serializedVersion: 2
       Hash: cf9f5cf2c3145a37ac07f00e50e460f9
@@ -870,7 +838,7 @@ ScriptsOnlyBuild:
     className: TextMeshPro
   - hash:
       serializedVersion: 2
-      Hash: 52c75924f7193a3152149ac29523f1d3
+      Hash: bd0129202f23d06a7246f7519e437689
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: List
@@ -882,7 +850,7 @@ ScriptsOnlyBuild:
     className: TMP_ColorGradient
   - hash:
       serializedVersion: 2
-      Hash: 0b2147ab9bc1b96ad0fa685c17876f5c
+      Hash: 7b4746311793718ececa0b3af71ea5fc
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Map
@@ -904,16 +872,9 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 91d42dd9f83f044af53e6734d5252d76
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: LongClickButton
   platform: 13
   scenePathNames:
   - Assets/Scenes/Menu.unity
   - Assets/Scenes/Map.unity
   - Assets/Scenes/List.unity
-  - Assets/Scenes/MainScene.unity
   playerPath: C:/Users/I509180/MarketPathfinder/MarketPathfinder.apk

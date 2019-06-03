@@ -18,15 +18,43 @@ public class Map : MonoBehaviour
     public Text nextItem;
     public Text productsInLoc;
     public GameObject HelpPanel;
+    public GameObject hereMenu;
+    public string[] produtos = new string[] {
+        "Laranja", //0
+        "Alface",
+        "Chocolate",
+        "Leite",
+        "Manteiga",
+        "Carne", //5
+        "Maionese",
+        "Salgadinho",
+        "Água",
+        "Fralda",
+        "Sabonete", //10
+        "NAO",
+        "NAO",
+        "Vassoura",
+        "Detergente",
+        "Pilha", //15
+        "Cereal",
+        "Achocolatado",
+        "Pão",
+        "Vinho",
+        "Vodka", //20
+        "Cerveja",
+        "Refrigerante",
+        "NAO"
+    };
   
     // Start is called before the first frame update
     void Start()
     {
+        hereMenu.SetActive(false);
         nodeMenu.SetActive(false);
         HelpPanel.SetActive(false);
         if (ListClass.list != null)
             shopList = ListClass.list;
-        BuildMap();
+        BuildMap(24);
     }
 
     // Update is called once per frame
@@ -61,17 +89,24 @@ public class Map : MonoBehaviour
         }
         BuildShopList();
         TurnLocations();
+        if (shopList.Count != 0)
+        {
+            shopList = Graphs.BestRoute(shopList,24);
+        }
         ChangeCheckText();
         NextItemColor();
         SetNumbers();
     }
-        public void LocationsButtonsPress(GameObject location){
-        productsInLoc.text = location.name;
+    public void LocationsButtonsPress(GameObject location){
+        string item = Convert.ToString(location.name[10]);
+        if(node.name[11] != ')' )
+        item += Convert.ToString(location.name[11]);
+        productsInLoc.text = produtos[Convert.ToInt32(item)];
         NextItemColor();
     }
 
     public void BackPress(){
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(2);
     }
     public void HelpPress(){
         HelpPanel.SetActive(true);
@@ -82,9 +117,13 @@ public class Map : MonoBehaviour
 
 
     // --------- BUILD FUNCTIONS  ------------------
-    void BuildMap(){
+    void BuildMap(int pos){
         BuildLocationStatus();
         TurnLocations();
+        if (shopList.Count != 0)
+        {
+            shopList = Graphs.BestRoute(shopList,pos);
+        }
         ChangeCheckText();
         NextItemColor();
         SetNumbers();
@@ -118,7 +157,7 @@ public class Map : MonoBehaviour
     void ChangeCheckText(){
         if(shopList.Count != 0){
             int item = shopList[0]; 
-            nextItem.text = "Product" + item;
+            nextItem.text = produtos[item];
         }
         else
             nextItem.text = "DONE";
@@ -135,7 +174,9 @@ public class Map : MonoBehaviour
         }
         
     }
+
     void SetNumbers(){
+
         int i = 1;
         foreach (int item in shopList)
         {
@@ -150,11 +191,15 @@ public class Map : MonoBehaviour
     public void ShowNodeMenu(GameObject location){
         node = location;
         nodeMenu.SetActive(true);
-        nodeMenuText.text = "- " + location.name;
+        string item = Convert.ToString(location.name[10]);
+        if(node.name[11] != ')' )
+        item += Convert.ToString(location.name[11]);
+        nodeMenuText.text = "- " + produtos[Convert.ToInt32(item)];
     }
     
     public void CloseNodeMenu(){
         nodeMenu.SetActive(false);
+        hereMenu.SetActive(false);
     }
 
     public void CheckNodeMenu(){
@@ -166,13 +211,31 @@ public class Map : MonoBehaviour
         Debug.Log(item);
         shopList.Remove(Convert.ToInt32(item));
         //perguntar se esta aqui
-        
-        BuildMap();
+
+        //BuildMap();
+        BuildLocationStatus();
+        TurnLocations();
+        ChangeCheckText();
+        NextItemColor();
+        SetNumbers();
         CloseNodeMenu();
         //closenode menu
+        
+        hereMenu.SetActive(true);
     }
 
     public void EstouAqui(){
-
+        string item = Convert.ToString(node.name[10]);
+        if(node.name[11] != ')' )
+            item += Convert.ToString(node.name[11]);
+        BuildMap(Convert.ToInt32(item));
+        hereMenu.SetActive(false);
     }
+
+    public void HereYes(){
+        EstouAqui();
+        CheckPress();
+    }
+
+
 }

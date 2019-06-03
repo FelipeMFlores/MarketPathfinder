@@ -55,6 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Graphs.cs" />
      <Compile Include="Assets\Scripts\List.cs" />
      <Compile Include="Assets\Scripts\LongClickButton.cs" />
      <Compile Include="Assets\Scripts\Map.cs" />
