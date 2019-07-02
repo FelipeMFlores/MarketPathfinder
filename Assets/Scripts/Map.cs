@@ -8,7 +8,7 @@ using System;
 
 public class Map : MonoBehaviour
 {
-    const int NLOCATIONS = 24;
+    const int NLOCATIONS = 12;
     public GameObject[] locations = new GameObject[NLOCATIONS];
     public GameObject nodeMenu;
     public Text nodeMenuText;
@@ -19,31 +19,19 @@ public class Map : MonoBehaviour
     public Text productsInLoc;
     public GameObject HelpPanel;
     public GameObject hereMenu;
-    public string[] produtos = new string[] {
-        "Laranja", //0
-        "Alface",
-        "Chocolate",
-        "Leite",
-        "Manteiga",
-        "Carne", //5
-        "Maionese",
-        "Salgadinho",
+    private string[] produtos = new string[] {
+        "Vinho", //0
+        "Pizza",
         "Água",
-        "Fralda",
-        "Sabonete", //10
-        "NAO",
-        "NAO",
-        "Vassoura",
-        "Detergente",
-        "Pilha", //15
-        "Cereal",
-        "Achocolatado",
+        "Frango",
+        "Carvão",
+        "Carne", //5
+        "Ovo",
+        "Papel Higiênico",
         "Pão",
-        "Vinho",
-        "Vodka", //20
-        "Cerveja",
-        "Refrigerante",
-        "NAO"
+        "Leite",
+        "Ketchup", //10
+        "Shampoo",
     };
   
     // Start is called before the first frame update
