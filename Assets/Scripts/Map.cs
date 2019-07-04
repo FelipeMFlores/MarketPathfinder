@@ -99,7 +99,7 @@ public class Map : MonoBehaviour
     }
     public void LocationsButtonsPress(GameObject location){
         string item = Convert.ToString(location.name[10]);
-        if(node.name[11] != ')' )
+        if(location.name[11] != ')' )
         item += Convert.ToString(location.name[11]);
         productsInLoc.text = produtos[Convert.ToInt32(item)];
         NextItemColor();
